@@ -1,14 +1,22 @@
 package main
 
 import (
-	"factory/aa"
-	"factory/ff"
+	"factory/abstract"
+	"factory/specific"
 	"fmt"
 )
 
 func main() {
-	fmt.Println("Hello, World!")
-	a := aa.Abs{Info: "aaa"}
-	f := ff.Fac{Af: a}
-	fmt.Println(f.Af.Info)
+	ak47, _ := specific.GetGun("ak47")
+	musket, _ := specific.GetGun("musket")
+
+	printDetails(ak47)
+	printDetails(musket)
+}
+
+func printDetails(g abstract.IGun) {
+	fmt.Printf("Gun: %s", g.GetName())
+	fmt.Println()
+	fmt.Printf("Power: %d", g.GetPower())
+	fmt.Println()
 }
