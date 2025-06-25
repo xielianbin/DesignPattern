@@ -1,8 +1,25 @@
 package main
 
-import "fmt"
+import "command/internal"
 
 func main() {
-	fmt.Println("Hello, World!")
+	tv := &internal.Tv{}
 
+	onCommand := &internal.OnCommand{
+		Device: tv,
+	}
+
+	offCommand := &internal.OffCommand{
+		Device: tv,
+	}
+
+	onButton := &internal.Button{
+		Command: onCommand,
+	}
+	onButton.Press()
+
+	offButton := &internal.Button{
+		Command: offCommand,
+	}
+	offButton.Press()
 }
