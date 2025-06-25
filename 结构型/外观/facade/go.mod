@@ -1,3 +1,3 @@
-module adapter
+module facade
 
 go 1.24.4
